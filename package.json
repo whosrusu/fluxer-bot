@@ -1,0 +1,25 @@
+{
+  "name": "fluxer-bot",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/base/index.js",
+  "scripts": {
+    "dev": "tsx src/base/index.ts",
+    "build": "tsc",
+    "start": "node dist/base/index.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "whosrusu",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^26.5.0",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@fluxerjs/core": "^3.0.0",
+    "dotenv": "^17.4.2"
+  }
+}
