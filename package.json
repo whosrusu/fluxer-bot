@@ -5,9 +5,9 @@
   "type": "module",
   "main": "dist/base/index.js",
   "scripts": {
-    "dev": "tsx src/base/index.ts",
-    "build": "tsc",
-    "start": "node dist/base/index.js",
+    "dev": "tsx watch src/base/index.ts",
+    "build": "rm -rf ./dist && tsc",
+    "start": "node dist/src/base/index.js",
     "typecheck": "tsc --noEmit"
   },
   "keywords": [],
@@ -15,11 +15,15 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^26.5.0",
+    "@types/pg": "^8.23.1",
     "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   },
   "dependencies": {
     "@fluxerjs/core": "^3.0.0",
-    "dotenv": "^17.4.2"
+    "dotenv": "^17.4.2",
+    "i18next": "^26.4.2",
+    "i18next-fs-backend": "^2.6.8",
+    "pg": "^8.23.0"
   }
 }

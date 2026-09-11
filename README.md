@@ -1,24 +1,10 @@
-# fluxer-bot
+# Fluxer bot
 
-A modular, TypeScript-based bot for the [Fluxer](https://fluxer.app) platform. Built with [Fluxer.js](https://www.npmjs.com/package/@fluxerjs/core), it features a typed event handler system and a dynamic command loader, backed by PostgreSQL for persistent storage.
+A modular, TypeScript-based bot for the [Fluxer](https://fluxer.app/) platform. Built with [Fluxer.js](https://fluxer.js.org/), it features a typed event handler system and a dynamic command loader, backed by [PostgreSQL](https://www.postgresql.org/) for persistent storage.
 
 ## 🚧 Work in Progress
 
-> **This project is under active development.** APIs, project structure, and features may change frequently and without notice. Things will break between commits. It is **not** ready for production use.
-
-<!-- badges: start -->
-<!-- badges: end -->
-
-## ⚙️ Tech Stack
-
-| Component       | Technology                                                        |
-| --------------- | ----------------------------------------------------------------- |
-| Language        | TypeScript 7                                                      |
-| Runtime         | Node.js 22.13+                                                    |
-| Package Manager | pnpm                                                              |
-| Platform        | Fluxer                                                            |
-| SDK / Library   | [@fluxerjs/core](https://www.npmjs.com/package/@fluxerjs/core) v3 |
-| Database        | PostgreSQL                                                        |
+> **This project is under active development. APIs, project structure, and features may change frequently and without notice. Things will break between commits. It is not ready for production use.**
 
 ## ✨ Features
 
@@ -48,56 +34,22 @@ pnpm install
 
 # If prompted, approve build scripts
 pnpm approve-builds
+
+# run
+pnpm build
+pnpm start
 ```
 
 ## 🔑 Environment Variables
 
 ```env
-FLUXER_BOT_TOKEN=your-bot-token-here
-PREFIX=.
+TOKEN=your-bot-token-here
 
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
 DB_PASSWORD=your-password
 DB_NAME=fluxer-bot
-```
-
-| Variable      | Description                             |
-| ------------- | --------------------------------------- |
-| `TOKEN`       | Authentication token for the Fluxer bot |
-| `PREFIX`      | Command prefix (default: `.`)           |
-| `DB_HOST`     | PostgreSQL host                         |
-| `DB_PORT`     | PostgreSQL port                         |
-| `DB_USER`     | PostgreSQL username                     |
-| `DB_PASSWORD` | PostgreSQL password                     |
-| `DB_NAME`     | PostgreSQL database name                |
-
-## 🛠️ Scripts
-
-| Command          | Description                             |
-| ---------------- | --------------------------------------- |
-| `pnpm dev`       | Start the bot in development mode (tsx) |
-| `pnpm build`     | Compile TypeScript to JavaScript (tsc)  |
-| `pnpm start`     | Run the compiled production build       |
-| `pnpm typecheck` | Type-check without emitting output      |
-
-## 📂 Project Structure
-
-```
-src/
-├── base/
-│   ├── index.ts            # Entry point — creates Client, loads handlers, logs in
-│   ├── config.ts           # Environment config and helper utilities
-│   ├── commands/
-│   │   └── info/           # Info-category commands
-│   ├── events/
-│   │   ├── message/        # MessageCreate event handler(s)
-│   │   └── ready/          # Ready event handler(s)
-│   └── handler/
-│       └── loader.ts       # Dynamic event and command loader
-└── interfaces/
-    └── interFluxer.ts      # ICommand, IEvent, IEventLoader interfaces + Client augmentation
 ```
 
 ## 🤝 Contributing

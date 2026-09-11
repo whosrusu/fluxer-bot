@@ -1,25 +1,32 @@
-import type { Client, Message } from "@fluxerjs/core";
+import type { Client as BaseClient, Message } from "@fluxerjs/core";
+
+export interface ExtendedClient extends BaseClient {
+  $commands: Map<string, ICommand>;
+  $events: Map<string, IEvent>;
+}
 
 export interface ICommand {
   dev?: boolean;
   name: string;
   aliases?: string[];
   usage?: string;
+  example?: string;
   category: string;
   description: string;
   cooldown?: string;
   permissions?: string[];
   run: (
-    client: Client,
+    client: ExtendedClient,
     message: Message,
     args: string[],
+    lang: string,
   ) => void | Promise<void>;
 }
 
 export interface IEvent<T = any> {
   name: string;
   once?: boolean;
-  execute: (arg: T, client: Client) => void | Promise<void>;
+  execute: (arg: T, client: ExtendedClient) => void | Promise<void>;
 }
 
 export interface IEventLoader {

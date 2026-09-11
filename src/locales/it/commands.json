@@ -1,0 +1,30 @@
+{
+  "language": {
+    "description": "Cambia la lingua del bot",
+    "changed": "Lingua cambiata in {{lang}}.",
+    "unknown": "Lingua sconosciuta. Usa: {{langs}}",
+    "same_lang": "Non puoi impostare la stessa lingua"
+  },
+  "setprefix": {
+    "response_crazy_prefix": "Non puoi usare simboli speciali nel prefisso.",
+    "response_prefix_max_3char": "Il prefisso può contenere al massimo 3 caratteri.",
+    "description": "Imposta il prefisso per il tuo server."
+  },
+  "help": {
+    "title": "Comandi di aiuto.",
+    "response": "Benvenuto nella guida.\nDevi selezionare una categoria per visualizzare i comandi.",
+    "response_aliases": "Alias",
+    "response_no_aliases": "Nessun alias",
+    "response_permissions": "Permessi",
+    "response_no_permissions": "Tutti.",
+    "response_usage": "Utilizzo",
+    "response_no_usage": "Nessun utilizzo",
+    "response_example": "Esempio",
+    "response_description": "Descrizione",
+    "description": "Elenco di tutti i comandi"
+  },
+  "ping": {
+    "description": "Controlla la latenza del bot.",
+    "response": "Pong"
+  }
+}

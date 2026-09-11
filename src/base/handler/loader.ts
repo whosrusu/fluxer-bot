@@ -3,8 +3,12 @@ import fs from "fs";
 import path from "path";
 import { config } from "../config.js";
 import type { ICommand, IEventLoader } from "../../interfaces/interFluxer.js";
+import { fileURLToPath } from "node:url";
 
-const base = path.join(process.cwd(), "src", "base");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const base = path.join(__dirname, "..");
 
 const line = "=".repeat(19);
 const title = "=".repeat(10);

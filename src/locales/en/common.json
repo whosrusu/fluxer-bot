@@ -1,0 +1,4 @@
+{
+  "missed_command_usge": "try it: {{prefix}}help {{command}}",
+  "not_permission": "{{user}} doesn't have permissions {{permissions}}"
+}

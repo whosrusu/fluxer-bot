@@ -1,11 +1,14 @@
+import { t } from "../../../i18n.js";
 import type { ICommand } from "../../../interfaces/interFluxer.js";
 
 const Ping: ICommand = {
   name: "ping",
   category: "info",
-  description: "pong",
-  run: async (client, message, args) => {
-    await message.reply("pong");
+  description: "commands:ping.description",
+  run: async (client, message, args, lang) => {
+    await message.reply({
+      content: t("commands:ping.response", lang),
+    });
   },
 };
 

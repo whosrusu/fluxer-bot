@@ -1,0 +1,30 @@
+{
+  "language": {
+    "description": "Change bot language",
+    "changed": "Language changed to {{lang}}.",
+    "unknown": "Unknown language. Use: {{langs}}",
+    "same_lang": "You  cannot put the same language"
+  },
+  "setprefix": {
+    "response_crazy_prefix": "You cant use special symbols in the prefix.",
+    "response_prefix_max_3char": "The prefix can contain a maximum of 3 characters.",
+    "description": "set prefix for your guild."
+  },
+  "help": {
+    "title": "Help Commands.",
+    "response": "Welcome to using the help.\nYou must select a category to result in orders",
+    "response_aliases": "Aliases",
+    "response_no_aliases": "No aliases",
+    "response_permissions": "Permissions",
+    "response_no_permissions": "Everyone.",
+    "response_usage": "Usage",
+    "response_no_usage": "No usage",
+    "response_example": "Example",
+    "response_description": "Descrption",
+    "description": "list of all commands"
+  },
+  "ping": {
+    "description": "Checks the bot's latency.",
+    "response": "pong"
+  }
+}
