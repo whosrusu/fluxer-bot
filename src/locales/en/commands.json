@@ -1,4 +1,29 @@
 {
+  "warn": {
+    "description": "Add, remove, or reset warnings for a member.",
+    "missing_add_or_remove_or_reset": "Choose a subcommand: `add`, `remove`, or `reset`. Example: `warn @user add spamming`.",
+    "response_yourself": "You cannot warn yourself.",
+    "response_bot": "You cannot warn a bot.",
+    "response_add": "{{user}} has been warned. Reason: {{reason}}",
+    "response_remove": "Removed a warning from {{user}}.",
+    "response_reset": "All warnings for {{user}} have been reset."
+  },
+  "warns": {
+    "description": "Show a member's warnings in this server.",
+    "response_member_doesnt_warns": "That member has no warnings.",
+    "response": "Warnings for {{user}}"
+  },
+  "mute": {
+    "description": "Timeout a member so they cannot send messages or join voice for a set time.",
+    "response_not_reason": "No reason provided",
+    "crazy_time": "Invalid duration. Use numbers with `s`, `m`, `h`, or `d` (example: `10m`, `1h`, `2d`).",
+    "response_selfmute": "You cannot mute yourself.",
+    "response_bot_low_role_position": "I cannot mute that member because my highest role is below theirs.",
+    "response_author_low_role_position": "You cannot mute that member because your highest role is below theirs.",
+    "response_member_unknow": "I could not find that member in this server.",
+    "invalid_time": "The time format is invalid. Please use a format like 10m, 1h, 2d for user {{user}}.",
+    "response": "{{user}} has been muted for {{time}}."
+  },
   "language": {
     "description": "Change bot language",
     "changed": "Language changed to {{lang}}.",

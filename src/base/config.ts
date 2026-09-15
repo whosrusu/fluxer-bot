@@ -22,6 +22,12 @@ export const config = {
   defaultLocale: "en",
   embed_color: 0xffffff,
 
+  // emoji config
+  emoji: {
+    next: "➡️",
+    last: "⬅️",
+  },
+
   // database
   database: {
     host: getEnv("DB_HOST"),

@@ -15,6 +15,16 @@ export async function initSchema() {
       "guild_id BIGINT PRIMARY KEY",
       `prefix TEXT NOT NULL DEFAULT '${config.prefix}'`,
     ]),
+    createTable("warns", [
+      "id BIGSERIAL PRIMARY KEY",
+      "guild_id TEXT NOT NULL",
+      "member_id TEXT NOT NULL",
+      "case_id INT NOT NULL",
+      "reason TEXT",
+      "moderator_id TEXT NOT NULL",
+      "created_at TIMESTAMPTZ DEFAULT NOW()",
+      "UNIQUE (guild_id, member_id, case_id)",
+    ]),
   ];
 
   await pool.query(tables.join("\n"));
