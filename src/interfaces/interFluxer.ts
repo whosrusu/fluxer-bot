@@ -13,7 +13,7 @@ export interface ICommand {
   example?: string;
   category: string;
   description: string;
-  cooldown?: string;
+  cooldown?: number;
   permissions?: string[];
   run: (
     client: ExtendedClient,

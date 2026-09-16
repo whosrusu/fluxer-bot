@@ -6,11 +6,12 @@ import {
 } from "../../handler/systems/guild.js";
 import { t } from "../../../i18n.js";
 import { config } from "../../config.js";
+import { checkCooldown } from "../../handler/systems/cooldowns.js";
 
 const MessageCreate: IEvent = {
   name: Events.MessageCreate,
   async execute(message: Message, client) {
-    if (message.author.bot || !message.guild) return;
+    if (message.author.bot || !message.guild || !message.channel) return;
     const content = message.content;
     const guild = message.guild;
     let prefix = await getGuildPrefix(String(guild.id));
@@ -63,6 +64,25 @@ const MessageCreate: IEvent = {
         });
         return;
       }
+    }
+
+    // cooldown system
+    const seconds = command.cooldown ?? 3;
+    const result = checkCooldown({
+      command: command.name,
+      userId: message.author.id,
+      guildId: message.guild?.id,
+      channelId: message.channel.id,
+      seconds,
+      bucket: "user",
+    });
+
+    if (!result.ok) {
+      const s = (result.remainingMs / 1000).toFixed(1);
+      await message.reply({
+        content: t("cooldown", lang, { seconds: s, command: command.name }),
+      });
+      return;
     }
 
     await command.run(client, message, args, lang);

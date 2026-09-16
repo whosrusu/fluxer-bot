@@ -1,4 +1,5 @@
 {
+  "cooldown": "Wait **{{seconds}}s** before using `{{command}}` again.",
   "missed_command_usge": "try it: {{prefix}}help {{command}}",
   "missing_member": "I couldn't find the mentioned member. Please mention a valid user (e.g. @name) and try the command again.",
   "missing_time": "You didn't specify a mute duration. Please include a valid time (e.g. 10m, 1h, 2d) and the target user.",

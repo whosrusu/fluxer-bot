@@ -1,4 +1,30 @@
 {
+  "membercount": {
+    "description": "Show how many members are in this server, split into humans and bots.",
+    "title": "Members — {{members}}",
+    "human_count": "Humans: **{{human_size}}**",
+    "bot_count": "Bots: **{{bot_size}}**"
+  },
+  "userinfo": {
+    "description": "Show information about a user: account age, join date, roles, and bio.",
+    "title": "User info — {{user}}",
+    "created": "Account created: <t:{{user_created_at}}:R>",
+    "member_joined_at": "Joined this server: <t:{{member_joined_at}}:R>",
+    "roles": "Roles: **{{roles}}**",
+    "bio": "Bio: {{bio_string}}"
+  },
+  "unmute": {
+    "description": "Remove a timeout from a member so they can talk and join voice again.",
+    "response": "{{user}} has been unmuted."
+  },
+  "botinfo": {
+    "description": "Show bot stats: servers, users, commands, and the developer.",
+    "title": "Bot information",
+    "status_guilds": "Servers: **{{guilds}}**",
+    "status_users": "Users: **{{users}}**",
+    "developer": "Developer: **{{developer}}**",
+    "status_commands": "Commands: **{{commands}}**"
+  },
   "warn": {
     "description": "Add, remove, or reset warnings for a member.",
     "missing_add_or_remove_or_reset": "Choose a subcommand: `add`, `remove`, or `reset`. Example: `warn @user add spamming`.",
