@@ -25,6 +25,16 @@ export async function initSchema() {
       "created_at TIMESTAMPTZ DEFAULT NOW()",
       "UNIQUE (guild_id, member_id, case_id)",
     ]),
+    createTable("guild_welcome", [
+      "guild_id BIGINT PRIMARY KEY",
+      "channel_id BIGINT NOT NULL",
+      "message TEXT NOT NULL DEFAULT 'welcome {user}'",
+    ]),
+    createTable("guild_goodbye", [
+      "guild_id BIGINT PRIMARY KEY",
+      "channel_id BIGINT NOT NULL",
+      "message TEXT NOT NULL DEFAULT 'goodbye {user}'",
+    ]),
   ];
 
   await pool.query(tables.join("\n"));

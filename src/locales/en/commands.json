@@ -1,4 +1,24 @@
 {
+  "check": {
+    "description": "Test your welcome or goodbye message configuration.",
+    "welcome_is_disable": "Welcome messages are not configured.",
+    "goodbye_is_disable": "Goodbye messages are not configured."
+  },
+  "disable": {
+    "description": "Disable welcome or goodbye messages.",
+    "welcome_is_disable": "Welcome messages are already disabled.",
+    "welcome_set_off": "Welcome messages have been disabled.",
+    "goodbye_is_disable": "Goodbye messages are already disabled.",
+    "goodbye_set_off": "Goodbye messages have been disabled."
+  },
+  "goodbye": {
+    "description": "Configure the goodbye message channel.",
+    "response": "Goodbye messages will be sent in {{channel}}."
+  },
+  "welcome": {
+    "description": "Configure the welcome message channel.",
+    "response": "Welcome messages will be sent in {{channel}}."
+  },
   "membercount": {
     "description": "Show how many members are in this server, split into humans and bots.",
     "title": "Members — {{members}}",
