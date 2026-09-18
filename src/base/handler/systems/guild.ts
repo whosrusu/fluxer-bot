@@ -252,15 +252,15 @@ export const addWarn = async (
 
 export const memberHighRole = (member: GuildMember) => {
   let rolePositionHigh = 0;
-  if (!member) return null;
-  if (!member.roles) return null;
+  if (!member) return 0;
+  if (!member.roles) return 0;
   for (const role of member.roles.cache.values()) {
     if (role.position > rolePositionHigh) {
       rolePositionHigh = role.position;
     }
   }
 
-  return rolePositionHigh;
+  return rolePositionHigh ? rolePositionHigh : 0;
 };
 
 const ensureGuildLanguage = async (guildId: string) => {

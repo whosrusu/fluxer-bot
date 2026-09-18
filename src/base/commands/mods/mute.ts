@@ -49,13 +49,6 @@ const Mute: ICommand = {
     const memberRolePositionHigh = memberHighRole(member);
     const botRolePossitionHigh = memberHighRole(bot);
 
-    if (
-      !authorRolePositionHigh ||
-      !memberRolePositionHigh ||
-      !botRolePossitionHigh
-    )
-      return;
-
     if (botRolePossitionHigh < memberRolePositionHigh) {
       await message.reply({
         content: t("commands:mute.response_bot_low_role_position", lang),
@@ -65,13 +58,6 @@ const Mute: ICommand = {
       await message.reply({
         content: t("commands:mute.response_author_low_role_position", lang),
       });
-    }
-
-    if (!member) {
-      await message.reply({
-        content: t("commands:mute.response_member_unknow", lang),
-      });
-      return;
     }
 
     const timerToMs = ($time: string) => {

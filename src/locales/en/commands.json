@@ -1,4 +1,29 @@
 {
+  "cat": {
+    "description": "Show a random cat image.",
+    "title": "Here’s your cat!"
+  },
+  "dog": {
+    "description": "Show a random dog image.",
+    "title": "Here’s your dog!"
+  },
+  "unban": {
+    "description": "Unban a user by their ID.",
+    "response": "User has been unbanned.",
+    "userid_unknow": "No ban found for that user ID."
+  },
+  "ban": {
+    "description": "Ban a member from the server.",
+    "response_bot_low_role_position": "I cannot ban this member because my highest role is lower than theirs.",
+    "response_author_low_role_position": "You cannot ban this member because your highest role is lower than theirs.",
+    "response": "{{user}} has been banned. Reason: {{reason}}"
+  },
+  "kick": {
+    "description": "Kick a member from the server.",
+    "response_bot_low_role_position": "I cannot kick this member because my highest role is lower than theirs.",
+    "response_author_low_role_position": "You cannot kick this member because your highest role is lower than theirs.",
+    "response": "{{user}} has been kicked. Reason: {{reason}}"
+  },
   "check": {
     "description": "Test your welcome or goodbye message configuration.",
     "welcome_is_disable": "Welcome messages are not configured.",
