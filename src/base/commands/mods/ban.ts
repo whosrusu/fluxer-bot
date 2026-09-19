@@ -9,6 +9,7 @@ const Ban: ICommand = {
   example: "@user toxic",
   category: "moderation",
   description: "commands:ban.description",
+  cooldown: 5,
   permissions: ["Administrator", "BanMembers"],
   run: async (client, message, args, lang) => {
     if (!client.user) return;

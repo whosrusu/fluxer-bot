@@ -13,6 +13,7 @@ const Language: ICommand = {
   example: "it",
   category: "config",
   description: "commands:language.description",
+  permissions: ["Administrator"],
   run: async (client, message, args, lang) => {
     const guild = message.guild;
     const getLang = await getGuildLanguage(String(guild?.id));

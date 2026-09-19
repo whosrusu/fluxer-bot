@@ -35,6 +35,10 @@ export async function initSchema() {
       "channel_id BIGINT NOT NULL",
       "message TEXT NOT NULL DEFAULT 'goodbye {user}'",
     ]),
+    createTable("guild_audit_log", [
+      "guild_id BIGINT PRIMARY KEY",
+      "channels JSONB NOT NULL DEFAULT '{}'::jsonb",
+    ]),
   ];
 
   await pool.query(tables.join("\n"));

@@ -1,4 +1,15 @@
 {
+  "remlog": {
+    "description": "Remove log channels for specific events.",
+    "invalid_event": "Invalid log event: `{{event}}`.",
+    "this_event_is_off": "This log event is already disabled.",
+    "response": "Log channels removed for: {{events}}."
+  },
+  "setlog": {
+    "description": "Configure log channels for specific events.",
+    "invalid_event": "Invalid log event: `{{event}}`.",
+    "response": "Log channels updated for {{events}} in {{channel}}."
+  },
   "cat": {
     "description": "Show a random cat image.",
     "title": "Here’s your cat!"
