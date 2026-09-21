@@ -3,7 +3,13 @@ import { pool } from "../db.js";
 import { config } from "../../config.js";
 
 export type AuditLogType =
-  "member_join" | "member_leave" | "voice" | "ban" | "kick" | "message_edit";
+  | "member_join"
+  | "member_leave"
+  | "voice"
+  | "ban"
+  | "kick"
+  | "message_edit"
+  | "message_delete";
 
 export const logEmbedBuilder = (
   guild: Guild,

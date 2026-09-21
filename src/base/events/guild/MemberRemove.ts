@@ -24,8 +24,8 @@ const MemberRemove: IEvent = {
           guild,
           "Member Leave",
           `- Member: ${member.user.username} (ID: ${member.id})
-- Joinend: **${member.joinedAt.getDay} days**
-- Created: **${member.user.createdAt.getDay} days**`,
+- Joinend: **${member.joinedAt.getDay()} days**
+- Created: **${member.user.createdAt.getDay()} days**`,
         );
         await channel.send({
           embeds: [embedLog],

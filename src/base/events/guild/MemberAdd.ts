@@ -22,8 +22,8 @@ const MemberAdd: IEvent = {
         const logEmbed = logEmbedBuilder(
           guild,
           "Member Join",
-          `- Member: ${member.user}
-- Created: **${member.user.createdAt.getDay} days**`,
+          `- Member: ${member.user} (ID: ${member.id})
+- Created: **${member.user.createdAt.getDay()} days**`,
         );
         await channel.send({
           embeds: [logEmbed],

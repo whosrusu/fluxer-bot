@@ -39,6 +39,8 @@ const Logs: ICommand = {
       "ban",
       "kick",
       "message_edit",
+      "message_delete",
+      "voice",
     ];
 
     const targers = args.splice(1) as AuditLogType[];
