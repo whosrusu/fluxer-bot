@@ -2,6 +2,10 @@ import { Events, GuildMember } from "@fluxerjs/core";
 import type { IEvent } from "../../../interfaces/interFluxer.js";
 import { checkGuildGoodbye } from "../../handler/systems/guild.js";
 import { MessageCustomer } from "../../handler/systems/customer.js";
+import {
+  getLogConfig,
+  logEmbedBuilder,
+} from "../../handler/systems/guildLogs.js";
 
 const MemberRemove: IEvent = {
   name: Events.GuildMemberAdd,
@@ -10,27 +14,42 @@ const MemberRemove: IEvent = {
     const guild = member.guild;
 
     const row = await checkGuildGoodbye(guild.id);
-    if (!row) return;
+    const rowLog = await getLogConfig(guild.id);
 
-    const channel = guild.channels.get(String(row.channel_id));
-    if (!channel) return;
-
-    if (channel && channel.isTextBased()) {
-      const em = MessageCustomer.EmBuilder(row.message, member, guild);
-      if (em.content || em.embeds[0].description || em.embeds[0].title) {
+    // logs member leave
+    if (rowLog) {
+      const channel = guild.channels.get(String(rowLog.member_leave));
+      if (channel && channel.isTextBased()) {
+        const embedLog = logEmbedBuilder(
+          guild,
+          "Member Leave",
+          `- Member: ${member.user.username} (ID: ${member.id})
+- Joinend: **${member.joinedAt.getDay} days**
+- Created: **${member.user.createdAt.getDay} days**`,
+        );
         await channel.send({
-          content: em.content ? em.content : "",
-          embeds: em.embeds,
-        });
-      } else {
-        await channel.send({
-          content: String(
-            MessageCustomer.replacePlaceholders(row.message, member, guild),
-          ),
+          embeds: [embedLog],
         });
       }
-    } else {
-      return;
+    }
+    // goodbye system
+    if (row) {
+      const channel = guild.channels.get(String(row.channel_id));
+      if (channel && channel.isTextBased()) {
+        const em = MessageCustomer.EmBuilder(row.message, member, guild);
+        if (em.content || em.embeds[0].description || em.embeds[0].title) {
+          await channel.send({
+            content: em.content ? em.content : "",
+            embeds: em.embeds,
+          });
+        } else {
+          await channel.send({
+            content: String(
+              MessageCustomer.replacePlaceholders(row.message, member, guild),
+            ),
+          });
+        }
+      }
     }
   },
 };

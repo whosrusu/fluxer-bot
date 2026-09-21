@@ -1,7 +1,25 @@
+import { EmbedBuilder, Guild } from "@fluxerjs/core";
 import { pool } from "../db.js";
+import { config } from "../../config.js";
 
 export type AuditLogType =
-  "member_join" | "member_leave" | "voice" | "ban" | "kick";
+  "member_join" | "member_leave" | "voice" | "ban" | "kick" | "message_edit";
+
+export const logEmbedBuilder = (
+  guild: Guild,
+  event_type: string,
+  event_input: string,
+) => {
+  const embed = new EmbedBuilder()
+    .setColor(config.embed_color)
+    .setTitle(event_type)
+    .setAuthor({ name: guild.name, iconURL: String(guild.iconURL()) })
+    .setThumbnail(String(guild.iconURL()))
+    .setDescription(event_input)
+    .setTimestamp(new Date());
+
+  return embed;
+};
 
 export const getLogConfig = async (guildId: string) => {
   const result = await pool.query(

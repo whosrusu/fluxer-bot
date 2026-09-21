@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@fluxerjs/core':
-        specifier: ^3.0.0
-        version: 3.0.0
+        specifier: ^3.1.0
+        version: 3.1.0
       dotenv:
         specifier: ^17.4.2
         version: 17.4.2
@@ -25,8 +25,8 @@ importers:
         version: 8.23.0
     devDependencies:
       '@types/node':
-        specifier: ^26.5.1
-        version: 26.5.1
+        specifier: ^26.6.2
+        version: 26.6.2
       '@types/pg':
         specifier: ^8.23.1
         version: 8.23.1
@@ -203,28 +203,36 @@ packages:
     resolution: {integrity: sha512-IUdngO5ymv89iDnXTz+E+U8lmNH5DMOOmZ9StBCjFAQ8wAvXLo9fceN2xjlLlACeNgw+sueFSoJV6x3h1Zs2Ug==}
     engines: {node: '>=22.13.0'}
 
-  '@fluxerjs/core@3.0.0':
-    resolution: {integrity: sha512-LWo2TojbN7q9sdeONogMYcf/cPTQkE7b0mmXWuZIF2l1qyGaQDY1lFhNpf1+R/3vIxQAyFZ4+oS6oADh0typ0g==}
+  '@fluxerjs/core@3.1.0':
+    resolution: {integrity: sha512-cdVwzXNJB1/9iSzcRNUIeN8qPkCk6kO3jw4dShLkUZPOYNgVmi+AYvjc0Te3/poyYoWcHkojvpEymcKAnr/ymg==}
     engines: {node: '>=22.13.0'}
 
-  '@fluxerjs/rest@3.0.0':
-    resolution: {integrity: sha512-MzjfgnZsuulSakKi8H1djrD5FBBCyZS3esdwk6B/a29B/wNJ7RDkXL/s8J62UXI8Zs4IHjLxJrIH8vRzi2Leew==}
+  '@fluxerjs/rest@3.1.0':
+    resolution: {integrity: sha512-JHnrHLwuhoEze/F3ZwYf7quS8tJAyRi8GwHc3xB4jnc1GZdK/9ZPbNkQVpXdl4CbiaO2bmlvfboiyHviZIWc0w==}
     engines: {node: '>=22.13.0'}
 
   '@fluxerjs/types@3.0.0':
     resolution: {integrity: sha512-VfCtBExMq5bZ+WC8E2oc96tfj6XRKePhRKjPJtcIc1AW+V6/+d3w/C9fx9HEnQs9xm33xvyah7cu9zp0jOx8qA==}
     engines: {node: '>=22.13.0'}
 
+  '@fluxerjs/types@3.1.0':
+    resolution: {integrity: sha512-Irtg8g7NhxvO5IAdJ3KdLq91K6thcTc2A8YeSgM0I61ESsYfvNuNdxMS/Y/y+xGjyfXIVpEEPkhfkEHaIojgIA==}
+    engines: {node: '>=22.13.0'}
+
   '@fluxerjs/util@3.0.0':
     resolution: {integrity: sha512-CMFRYdjQC26ZoXckgWcDVshZuxrU9wu42H/prv9cciZfmR9RQTSelVKq5TM1XQeYchrpxoL9EPxQMv3moSsbvA==}
     engines: {node: '>=22.13.0'}
 
-  '@fluxerjs/ws@3.0.0':
-    resolution: {integrity: sha512-GVDZEt7vYETnBCJjBf9ZjJdSRS5UgobYnjfjSm40u5mNiQ4d02wG405HKxIUdVy0xK637oXDWeVlYH4PugzjJA==}
+  '@fluxerjs/util@3.1.0':
+    resolution: {integrity: sha512-NCFf4igTpDeRAgW7/8yxEDFfqmy16xlfvBQfysSAE2jEkUcM0s1G9nP8rsIhTYb4bQ+dTvHh9Rv/eWKgOYyI/w==}
     engines: {node: '>=22.13.0'}
 
-  '@types/node@26.5.1':
-    resolution: {integrity: sha512-CzNm2FezW4VR/LjG6yUdiEgLE/rAQ9Slj5gCu/C2VrdcW7I0ahNZ8DRbHT7zOZ6r3ONgd/bsQIeSaoDGrd1C6g==}
+  '@fluxerjs/ws@3.1.0':
+    resolution: {integrity: sha512-CQWs6zKo6a+SkOOk/KtMHWRKa38cVNrjLfihzBwb3eR7zUIv4wXnKWxw03X8e1kp/C4DMAAElQX+OQFU/K+xNg==}
+    engines: {node: '>=22.13.0'}
+
+  '@types/node@26.6.2':
+    resolution: {integrity: sha512-X1P21scMv4zGKLYqjdGjaKa7COa0RKVYYZZN/NfvLQ1JegxFhdhpZG/Lyn8AXx6CDUavKAd11v6BvfpkDByK8g==}
 
   '@types/pg@8.23.1':
     resolution: {integrity: sha512-fKVHpikPdg4GKks3JuLEhvwSyvwzF23hnabPy6DD8ljVbC7+6J5dQzdv4arV6jqq57djnMgs1HKBxX4P8aBI3A==}
@@ -548,45 +556,51 @@ snapshots:
 
   '@fluxerjs/collection@3.0.0': {}
 
-  '@fluxerjs/core@3.0.0':
+  '@fluxerjs/core@3.1.0':
     dependencies:
       '@fluxerjs/builders': 3.0.0
       '@fluxerjs/collection': 3.0.0
-      '@fluxerjs/rest': 3.0.0
-      '@fluxerjs/types': 3.0.0
-      '@fluxerjs/util': 3.0.0
-      '@fluxerjs/ws': 3.0.0
+      '@fluxerjs/rest': 3.1.0
+      '@fluxerjs/types': 3.1.0
+      '@fluxerjs/util': 3.1.0
+      '@fluxerjs/ws': 3.1.0
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
 
-  '@fluxerjs/rest@3.0.0':
+  '@fluxerjs/rest@3.1.0':
     dependencies:
-      '@fluxerjs/types': 3.0.0
+      '@fluxerjs/types': 3.1.0
       undici: 7.29.1
 
   '@fluxerjs/types@3.0.0': {}
+
+  '@fluxerjs/types@3.1.0': {}
 
   '@fluxerjs/util@3.0.0':
     dependencies:
       '@fluxerjs/types': 3.0.0
 
-  '@fluxerjs/ws@3.0.0':
+  '@fluxerjs/util@3.1.0':
     dependencies:
-      '@fluxerjs/types': 3.0.0
-      '@fluxerjs/util': 3.0.0
+      '@fluxerjs/types': 3.1.0
+
+  '@fluxerjs/ws@3.1.0':
+    dependencies:
+      '@fluxerjs/types': 3.1.0
+      '@fluxerjs/util': 3.1.0
       ws: 8.21.3
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
 
-  '@types/node@26.5.1':
+  '@types/node@26.6.2':
     dependencies:
       undici-types: 8.9.0
 
   '@types/pg@8.23.1':
     dependencies:
-      '@types/node': 26.5.1
+      '@types/node': 26.6.2
       pg-protocol: 1.16.0
       pg-types: 2.2.0
 

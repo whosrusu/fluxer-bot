@@ -14,13 +14,13 @@
   "author": "whosrusu",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^26.5.1",
+    "@types/node": "^26.6.2",
     "@types/pg": "^8.23.1",
     "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   },
   "dependencies": {
-    "@fluxerjs/core": "^3.0.0",
+    "@fluxerjs/core": "^3.1.0",
     "dotenv": "^17.4.2",
     "i18next": "^26.4.2",
     "i18next-fs-backend": "^2.6.8",
