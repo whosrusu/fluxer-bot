@@ -5,6 +5,7 @@ import { config } from "../../config.js";
 export type AuditLogType =
   | "member_join"
   | "member_leave"
+  | "channel"
   | "voice"
   | "ban"
   | "kick"

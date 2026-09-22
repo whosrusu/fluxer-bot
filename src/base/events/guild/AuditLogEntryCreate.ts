@@ -25,6 +25,75 @@ const AuditLogEntryCreate: IEvent = {
     if (!guild) return;
 
     const row = await getLogConfig(guild.id);
+    // channel delete
+    if (log.actionType === 12) {
+      const channelForLogChannel = guild.channels.get(String(row.channel));
+      const changeChannel = log.changes[0];
+      const eventChannel = changeChannel.key;
+      if (eventChannel == "channel_id") {
+        if (channelForLogChannel && channelForLogChannel.isTextBased()) {
+          const embedForLogChannel = logEmbedBuilder(
+            guild,
+            "Channel Delete",
+            `- Moderator: <@${log.userId}>
+- Channel: ${log.changes[2].oldValue}`,
+          );
+
+          await channelForLogChannel.send({
+            embeds: [embedForLogChannel],
+          });
+        }
+      }
+    }
+    // channel create
+    if (log.actionType === 10) {
+      const channelForLogChannel = guild.channels.get(String(row.channel));
+      const changeChannel = log.changes[0];
+      let eventChannel = changeChannel.key;
+      if (channelForLogChannel && channelForLogChannel.isTextBased()) {
+        if (eventChannel == "channel_id") {
+          const embedForLogChannel = logEmbedBuilder(
+            guild,
+            "Channel Create",
+            `- Moderator: <@${log.userId}>
+- Channel: <#${log.targetId}>`,
+          );
+
+          await channelForLogChannel.send({
+            embeds: [embedForLogChannel],
+          });
+        }
+      }
+    }
+    // channel update
+    if (log.actionType === 11) {
+      if (row.channel) {
+        const channelForLogChannel = guild.channels.get(String(row.channel));
+        const changeChannel = log.changes[0];
+        let eventChannel = changeChannel.key;
+
+        let embedForLogChannel;
+
+        // channel update name.
+        if (eventChannel == "name") {
+          embedForLogChannel = logEmbedBuilder(
+            guild,
+            "Channel Update",
+            `- Moderator: <@${log.userId}>
+- Channel: <#${log.targetId}>
+- Name: ${changeChannel.oldValue} > ${changeChannel.newValue}`,
+          );
+        }
+
+        if (!embedForLogChannel) return;
+
+        if (channelForLogChannel && channelForLogChannel.isTextBased()) {
+          channelForLogChannel.send({
+            embeds: [embedForLogChannel],
+          });
+        }
+      }
+    }
     // voice mute | def comunity
     if (log.actionType === 24) {
       if (row.voice) {

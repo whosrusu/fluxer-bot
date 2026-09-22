@@ -41,6 +41,7 @@ const Logs: ICommand = {
       "message_edit",
       "message_delete",
       "voice",
+      "channel",
     ];
 
     const targers = args.splice(1) as AuditLogType[];
