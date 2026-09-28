@@ -1,4 +1,11 @@
 {
+  "clear": {
+    "description": "Deletes a specified number of messages from the channel.",
+    "response": "Successfully deleted {{sum}} messages.",
+    "response_sum_so_small": "the amount is too small, the maximum is 1 - 100",
+    "response_sum_so_big": "the amount is too high, the maximum is 100",
+    "not_text_channel": "This command can only be used in a text channel."
+  },
   "remlog": {
     "description": "Remove log channels for specific events.",
     "invalid_event": "Invalid log event: `{{event}}`.",

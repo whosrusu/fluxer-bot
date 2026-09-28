@@ -4,6 +4,8 @@ import {
   getLogConfig,
   logEmbedBuilder,
 } from "../../handler/systems/guildLogs.js";
+import { t } from "../../../i18n.js";
+import { getGuildLanguage } from "../../handler/systems/guild.js";
 
 const tmpDB = new Map<string, string>();
 
@@ -18,15 +20,16 @@ const MemberVoice: IEvent = {
       const channelLog = guild.channels.get(log.voice);
       const member = await guild.fetchMember(voice.member.user.id);
       const channel = guild.channels.get(String(voice.channel_id));
+      const lang = await getGuildLanguage(guild.id);
 
       // when member leave from voice.
       if (!channel) {
         const oldChannel = tmpDB.get(member.id);
         const embed = logEmbedBuilder(
           guild,
-          "Member Voice Leave",
-          `- Member: ${member}
-- Channel: <#${oldChannel}>`,
+          t("event-voice-member-leave", lang),
+          `- ${t("event-member", lang)}: ${member}
+- ${t("event-channel", lang)}: <#${oldChannel}>`,
         );
 
         if (channelLog && channelLog.isTextBased()) {
@@ -41,9 +44,9 @@ const MemberVoice: IEvent = {
         tmpDB.set(member.id, channel.id);
         const embed = logEmbedBuilder(
           guild,
-          "Member Voice Join",
-          `- Member: ${member}
-- Channel: ${channel}`,
+          t("event-voice-member-join", lang),
+          `- ${t("event-member", lang)}: ${member}
+- ${t("event-channel", lang)}: ${channel}`,
         );
 
         if (channelLog && channelLog.isTextBased()) {

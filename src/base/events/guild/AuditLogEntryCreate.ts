@@ -4,6 +4,8 @@ import {
   getLogConfig,
   logEmbedBuilder,
 } from "../../handler/systems/guildLogs.js";
+import { t } from "../../../i18n.js";
+import { getGuildLanguage } from "../../handler/systems/guild.js";
 
 type LogType = {
   id: string;
@@ -19,10 +21,11 @@ type LogType = {
 const AuditLogEntryCreate: IEvent = {
   name: Events.GuildAuditLogEntryCreate,
   async execute(log: LogType, client) {
-    console.log(log);
+    // console.log(log);
 
     const guild = client.guilds.get(String(log.guildId));
     if (!guild) return;
+    const lang = await getGuildLanguage(guild.id);
 
     const row = await getLogConfig(guild.id);
     // channel delete
@@ -34,9 +37,9 @@ const AuditLogEntryCreate: IEvent = {
         if (channelForLogChannel && channelForLogChannel.isTextBased()) {
           const embedForLogChannel = logEmbedBuilder(
             guild,
-            "Channel Delete",
-            `- Moderator: <@${log.userId}>
-- Channel: ${log.changes[2].oldValue}`,
+            t("event-channel-del", lang),
+            `- ${t("event-moderator", lang)}: <@${log.userId}>
+- ${t("event-channel", lang)}: ${log.changes[2].oldValue}`,
           );
 
           await channelForLogChannel.send({
@@ -54,9 +57,9 @@ const AuditLogEntryCreate: IEvent = {
         if (eventChannel == "channel_id") {
           const embedForLogChannel = logEmbedBuilder(
             guild,
-            "Channel Create",
-            `- Moderator: <@${log.userId}>
-- Channel: <#${log.targetId}>`,
+            t("event-channel-create", lang),
+            `- ${t("event-moderator", lang)}: <@${log.userId}>
+- ${t("event-channel", lang)}: <#${log.targetId}>`,
           );
 
           await channelForLogChannel.send({
@@ -78,9 +81,9 @@ const AuditLogEntryCreate: IEvent = {
         if (eventChannel == "name") {
           embedForLogChannel = logEmbedBuilder(
             guild,
-            "Channel Update",
-            `- Moderator: <@${log.userId}>
-- Channel: <#${log.targetId}>
+            t("event-channel-update", lang),
+            `- ${t("event-moderator", lang)}: <@${log.userId}>
+- ${t("event-channel", lang)}: <#${log.targetId}>
 - Name: ${changeChannel.oldValue} > ${changeChannel.newValue}`,
           );
         }
@@ -106,9 +109,9 @@ const AuditLogEntryCreate: IEvent = {
 
           const embedForLogVoiceMuted = logEmbedBuilder(
             guild,
-            "Member voice",
-            `- Moderator: <@${log.userId}>
-- Member: <@${log.targetId}>
+            t("event-voice", lang),
+            `- ${t("event-moderator", lang)}: <@${log.userId}>
+- ${t("event-member", lang)}: <@${log.targetId}>
 - ${resultVc.join("\n")}`,
           );
 
@@ -125,10 +128,10 @@ const AuditLogEntryCreate: IEvent = {
         if (channelForLogKick && channelForLogKick.isTextBased()) {
           const embedForLogKick = logEmbedBuilder(
             guild,
-            "Member kicked.",
-            `- Moderator: <@${log.userId}>
-- Member: <@${log.targetId}>
-- Reason: <@${log.reason ?? "No reason"}`,
+            t("event-kick-member", lang),
+            `- ${t("event-moderator", lang)}: <@${log.userId}>
+- ${t("event-member", lang)}: <@${log.targetId}>
+- ${t("event-reason", lang)}: <@${log.reason ?? "-"}`,
           );
 
           await channelForLogKick.send({
@@ -144,9 +147,9 @@ const AuditLogEntryCreate: IEvent = {
         if (channelForLogUnban && channelForLogUnban.isTextBased()) {
           const embedForLogUnban = logEmbedBuilder(
             guild,
-            "Member unbanned",
-            `- Moderator: <@${log.userId}>
-- Member: <@${log.targetId}>`,
+            t("event-unban-member", lang),
+            `- ${t("event-moderator", lang)}: <@${log.userId}>
+- ${t("event-member", lang)}: <@${log.targetId}>`,
           );
 
           await channelForLogUnban.send({
@@ -162,10 +165,10 @@ const AuditLogEntryCreate: IEvent = {
         if (channelForLogBan && channelForLogBan.isTextBased()) {
           const embedForLogBan = logEmbedBuilder(
             guild,
-            "Member Banned.",
-            `- Moderator: <@${log.userId}>
-- Member: <@${log.targetId}>
-- Reason: ${log.reason ?? "No reason."}`,
+            t("event-ban-member", lang),
+            `- ${t("event-moderator", lang)}: <@${log.userId}>
+- ${t("event-member", lang)}: <@${log.targetId}>
+- ${t("event-reason", lang)}: ${log.reason ?? "-"}`,
           );
 
           await channelForLogBan.send({

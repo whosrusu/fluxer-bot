@@ -9,6 +9,9 @@ import {
 const Remlog: ICommand = {
   name: "remlog",
   aliases: ["removelog"],
+  usage:
+    "[member_join | member_leave | message_edit | message_delete | voice | kick | ban | channel]",
+  example: "member_leave message_delete",
   category: "config",
   description: "commands:remlog.description",
   permissions: ["Administrator"],
@@ -22,6 +25,10 @@ const Remlog: ICommand = {
     const LOG_EVENTS: AuditLogType[] = [
       "member_join",
       "member_leave",
+      "message_delete",
+      "message_edit",
+      "channel",
+      "voice",
       "ban",
       "kick",
     ];

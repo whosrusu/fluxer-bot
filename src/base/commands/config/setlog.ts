@@ -9,7 +9,8 @@ import {
 const Logs: ICommand = {
   name: "setlog",
   aliases: ["setlogs", "setl"],
-  usage: "[channel] [member_join | member_leave | ban | kick | voice]",
+  usage:
+    "[channel] [member_join | member_leave | ban | kick | voice | message_edit | message_delete]",
   example: "#channel all",
   category: "config",
   description: "commands:setlog.description",
